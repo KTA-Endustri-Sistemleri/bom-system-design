@@ -1,5 +1,7 @@
 # BOM System Design Draft
 
+![Status](https://img.shields.io/badge/status-draft-orange)
+
 ERPNext için **Kablo, Terminal ve Kalıp ilişkilerini otomatik çözümleyen** BOM tasarımı.  
 Bu çalışma, fikir geliştirme aşamasında olup, ileride ERPNext uygulaması olarak genişletilecektir.
 
