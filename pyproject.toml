@@ -1,5 +1,5 @@
 [project]
-name = "bom-system-design"
+name = "bom_system_design"
 authors = [
     { name = "KTA Endustri Sistemleri", email = "info@kta-endustri.com.tr"}
 ]
