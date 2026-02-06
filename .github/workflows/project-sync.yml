@@ -7,6 +7,8 @@ on:
 
 permissions:
   contents: read
+  issues: read
+  pull-requests: read
 
 jobs:
   sync:
@@ -35,16 +37,24 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gh
 
-      - name: Verify token works
-        env:
-          GH_TOKEN: ${{ secrets.PROJECT_SYNC_TOKEN }}
+      - name: Pick token (PROJECT_SYNC_TOKEN preferred)
+        id: tok
+        shell: bash
         run: |
-          # This will fail if token is missing/invalid
+          if [ -n "${{ secrets.PROJECT_SYNC_TOKEN }}" ]; then
+            echo "token_source=PROJECT_SYNC_TOKEN" >> "$GITHUB_OUTPUT"
+            echo "GH_TOKEN=${{ secrets.PROJECT_SYNC_TOKEN }}" >> "$GITHUB_ENV"
+          else
+            echo "token_source=github.token" >> "$GITHUB_OUTPUT"
+            echo "GH_TOKEN=${{ github.token }}" >> "$GITHUB_ENV"
+          fi
+
+      - name: Verify token works
+        run: |
+          echo "Using token: ${{ steps.tok.outputs.token_source }}"
           gh api user --jq '.login'
 
       - name: Run scripts
-        env:
-          GH_TOKEN: ${{ secrets.PROJECT_SYNC_TOKEN }}
         run: |
           set -euo pipefail
           bash .github/scripts/assign_issues_to_project_no_type.sh
