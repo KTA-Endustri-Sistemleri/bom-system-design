@@ -3,12 +3,10 @@ name: Project Sync (Issues -> Project fields)
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "30 3 * * *"  # daily
+    - cron: "30 3 * * *"
 
 permissions:
   contents: read
-  issues: read
-  pull-requests: read
 
 jobs:
   sync:
@@ -37,11 +35,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y gh
 
-      - name: Auth (PROJECT_SYNC_TOKEN)
+      - name: Verify token works
         env:
           GH_TOKEN: ${{ secrets.PROJECT_SYNC_TOKEN }}
         run: |
-          gh auth status
+          # This will fail if token is missing/invalid
+          gh api user --jq '.login'
 
       - name: Run scripts
         env:
