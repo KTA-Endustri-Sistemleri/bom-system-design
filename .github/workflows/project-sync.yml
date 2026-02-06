@@ -1,0 +1,56 @@
+name: Project Sync (Issues -> Project fields)
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Her gün 03:30 UTC (Türkiye saati 06:30 civarı, DST değişebilir)
+    - cron: "30 3 * * *"
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+  repository-projects: write
+  organization-projects: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Install GitHub CLI
+        run: |
+          type -p gh && exit 0 || true
+          sudo apt-get install -y gh || true
+          if ! command -v gh >/dev/null 2>&1; then
+            sudo mkdir -p -m 755 /etc/apt/keyrings
+            curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+              | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null
+            sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+              | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+            sudo apt-get update
+            sudo apt-get install -y gh
+          fi
+
+      - name: Auth (GH_TOKEN)
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_SYNC_TOKEN }}
+        run: |
+          gh auth status
+
+      - name: Run scripts
+        env:
+          GH_TOKEN: ${{ secrets.PROJECT_SYNC_TOKEN }}
+        run: |
+          set -e
+          bash .github/scripts/assign_issues_to_project_no_type.sh
+          bash .github/scripts/assign_issues_to_project_priority.sh
+          bash .github/scripts/assign_status_estimate_time_to_issues.sh
