@@ -1,5 +1,5 @@
 app_name = "bom_system_design"
-app_title = "bom-system-design"
+app_title = "bom_system_design"
 app_publisher = "KTA Endustri Sistemleri"
 app_description = "Bom System Design for KTA"
 app_email = "info@kta-endustri.com.tr"
