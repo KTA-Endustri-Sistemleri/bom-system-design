@@ -1,0 +1,1437 @@
+{
+  "meta": {
+    "version": "0.1",
+    "generated_on": "2026-02-06",
+    "notes": [
+      "Seed dataset for cable configurator + core color generation",
+      "Values are intended as a practical starter set; extend per supplier catalogs",
+      "All IDs use simple codes to ease import/mapping"
+    ]
+  },
+  "cable_standards": [
+    {
+      "name": "UL",
+      "domain": "industrial",
+      "description": "Underwriters Laboratories (US)"
+    },
+    {
+      "name": "IEC",
+      "domain": "energy_control",
+      "description": "International Electrotechnical Commission"
+    },
+    {
+      "name": "VDE",
+      "domain": "eu_machine",
+      "description": "German/European VDE / EN practice"
+    },
+    {
+      "name": "ISO_6722",
+      "domain": "automotive",
+      "description": "Automotive low-voltage cables"
+    },
+    {
+      "name": "SAE",
+      "domain": "automotive",
+      "description": "Society of Automotive Engineers"
+    },
+    {
+      "name": "TIA_EIA",
+      "domain": "data",
+      "description": "Structured cabling categories (Cat)"
+    },
+    {
+      "name": "ISO_IEC_11801",
+      "domain": "data",
+      "description": "International structured cabling"
+    },
+    {
+      "name": "PROFINET",
+      "domain": "industrial_ethernet",
+      "description": "PROFINET cabling guidance"
+    },
+    {
+      "name": "CANOPEN",
+      "domain": "industrial_fieldbus",
+      "description": "CANopen cabling guidance"
+    }
+  ],
+  "cable_series": [
+    {
+      "standard": "UL",
+      "series_code": "AWM_1007",
+      "label": "UL AWM Style 1007",
+      "voltage_v": 300,
+      "temp_c": 80,
+      "notes": "Hook-up wire, single core, PVC"
+    },
+    {
+      "standard": "UL",
+      "series_code": "AWM_1015",
+      "label": "UL AWM Style 1015",
+      "voltage_v": 600,
+      "temp_c": 105,
+      "notes": "Hook-up wire, single core, PVC/XLPE variants"
+    },
+    {
+      "standard": "UL",
+      "series_code": "AWM_1061",
+      "label": "UL AWM Style 1061",
+      "voltage_v": 300,
+      "temp_c": 80,
+      "notes": "Hook-up wire, thin wall variants exist"
+    },
+    {
+      "standard": "UL",
+      "series_code": "AWM_2464",
+      "label": "UL AWM Style 2464",
+      "voltage_v": 300,
+      "temp_c": 80,
+      "notes": "Multi-conductor, PVC jacket"
+    },
+    {
+      "standard": "UL",
+      "series_code": "AWM_2586",
+      "label": "UL AWM Style 2586",
+      "voltage_v": 300,
+      "temp_c": 105,
+      "notes": "Multi-conductor, higher temp options"
+    },
+    {
+      "standard": "UL",
+      "series_code": "AWM_20276",
+      "label": "UL AWM Style 20276",
+      "voltage_v": 30,
+      "temp_c": 80,
+      "notes": "Shielded signal/control, foil+drain common"
+    },
+    {
+      "standard": "UL",
+      "series_code": "MTW",
+      "label": "Machine Tool Wire (MTW)",
+      "voltage_v": 600,
+      "temp_c": 90,
+      "notes": "Industrial panel/machine wiring"
+    },
+    {
+      "standard": "UL",
+      "series_code": "TC_ER",
+      "label": "Tray Cable (TC-ER)",
+      "voltage_v": 600,
+      "temp_c": 90,
+      "notes": "Industrial tray cable, ER rating varies"
+    },
+    {
+      "standard": "UL",
+      "series_code": "PLTC",
+      "label": "Power Limited Tray Cable (PLTC)",
+      "voltage_v": 300,
+      "temp_c": 90,
+      "notes": "Instrumentation/control in tray applications"
+    },
+    {
+      "standard": "IEC",
+      "series_code": "H05V_K",
+      "label": "H05V-K",
+      "voltage_v": 500,
+      "temp_c": 70,
+      "notes": "Flexible single core, PVC"
+    },
+    {
+      "standard": "IEC",
+      "series_code": "H07V_K",
+      "label": "H07V-K",
+      "voltage_v": 750,
+      "temp_c": 70,
+      "notes": "Flexible single core, PVC"
+    },
+    {
+      "standard": "IEC",
+      "series_code": "NYM_J",
+      "label": "NYM-J",
+      "voltage_v": 1000,
+      "temp_c": 70,
+      "notes": "Building installation cable, includes PE core"
+    },
+    {
+      "standard": "IEC",
+      "series_code": "LIYY",
+      "label": "LiYY",
+      "voltage_v": 300,
+      "temp_c": 70,
+      "notes": "Control cable, PVC jacket"
+    },
+    {
+      "standard": "IEC",
+      "series_code": "LIYCY",
+      "label": "LiYCY",
+      "voltage_v": 300,
+      "temp_c": 70,
+      "notes": "Shielded control cable, braid shield common"
+    },
+    {
+      "standard": "IEC",
+      "series_code": "LI2YCY",
+      "label": "Li2YCY",
+      "voltage_v": 300,
+      "temp_c": 70,
+      "notes": "PE insulation, shielded signal cable"
+    },
+    {
+      "standard": "IEC",
+      "series_code": "YSLY",
+      "label": "YSLY",
+      "voltage_v": 500,
+      "temp_c": 70,
+      "notes": "Flexible control cable (common industry naming)"
+    },
+    {
+      "standard": "IEC",
+      "series_code": "YSLYCY",
+      "label": "YSLY-CY",
+      "voltage_v": 500,
+      "temp_c": 70,
+      "notes": "Shielded control cable (CY braid)"
+    },
+    {
+      "standard": "VDE",
+      "series_code": "LIYY_VDE",
+      "label": "LiYY (VDE)",
+      "voltage_v": 300,
+      "temp_c": 70,
+      "notes": "VDE referenced variant"
+    },
+    {
+      "standard": "VDE",
+      "series_code": "LIYCY_VDE",
+      "label": "LiYCY (VDE)",
+      "voltage_v": 300,
+      "temp_c": 70,
+      "notes": "VDE referenced variant (shielded)"
+    },
+    {
+      "standard": "VDE",
+      "series_code": "PUR_DRAGCHAIN",
+      "label": "PUR Drag Chain",
+      "voltage_v": 300,
+      "temp_c": 80,
+      "notes": "Drag chain robot cable families, vendor-specific"
+    },
+    {
+      "standard": "TIA_EIA",
+      "series_code": "CAT5E",
+      "label": "Category 5e",
+      "voltage_v": null,
+      "temp_c": 60,
+      "notes": "8-core, 4-pair, 100 MHz class"
+    },
+    {
+      "standard": "TIA_EIA",
+      "series_code": "CAT6",
+      "label": "Category 6",
+      "voltage_v": null,
+      "temp_c": 60,
+      "notes": "8-core, 4-pair, 250 MHz class"
+    },
+    {
+      "standard": "TIA_EIA",
+      "series_code": "CAT6A",
+      "label": "Category 6A",
+      "voltage_v": null,
+      "temp_c": 60,
+      "notes": "8-core, 4-pair, 500 MHz class"
+    },
+    {
+      "standard": "PROFINET",
+      "series_code": "PN_TYPE_A",
+      "label": "PROFINET Type A",
+      "voltage_v": null,
+      "temp_c": 60,
+      "notes": "Fixed installation, industrial ethernet"
+    },
+    {
+      "standard": "PROFINET",
+      "series_code": "PN_TYPE_B",
+      "label": "PROFINET Type B",
+      "voltage_v": null,
+      "temp_c": 60,
+      "notes": "Flexible installation, industrial ethernet"
+    },
+    {
+      "standard": "PROFINET",
+      "series_code": "PN_TYPE_C",
+      "label": "PROFINET Type C",
+      "voltage_v": null,
+      "temp_c": 60,
+      "notes": "Drag chain capable industrial ethernet"
+    },
+    {
+      "standard": "ISO_6722",
+      "series_code": "FLRY_A",
+      "label": "FLRY-A",
+      "voltage_v": 60,
+      "temp_c": 105,
+      "notes": "Thin wall automotive cable"
+    },
+    {
+      "standard": "ISO_6722",
+      "series_code": "FLRY_B",
+      "label": "FLRY-B",
+      "voltage_v": 60,
+      "temp_c": 105,
+      "notes": "Thinner wall automotive cable"
+    },
+    {
+      "standard": "SAE",
+      "series_code": "SAE_J1128_TXL",
+      "label": "SAE J1128 TXL",
+      "voltage_v": 60,
+      "temp_c": 125,
+      "notes": "Thin wall cross-linked"
+    },
+    {
+      "standard": "SAE",
+      "series_code": "SAE_J1128_GXL",
+      "label": "SAE J1128 GXL",
+      "voltage_v": 60,
+      "temp_c": 125,
+      "notes": "Standard wall cross-linked"
+    },
+    {
+      "standard": "SAE",
+      "series_code": "SAE_J1128_SXL",
+      "label": "SAE J1128 SXL",
+      "voltage_v": 60,
+      "temp_c": 125,
+      "notes": "Thick wall cross-linked"
+    },
+    {
+      "standard": "CANOPEN",
+      "series_code": "CAN_CABLE",
+      "label": "CAN Bus Cable",
+      "voltage_v": null,
+      "temp_c": 80,
+      "notes": "120Ω nominal, twisted pair, shield optional"
+    }
+  ],
+  "property_options": {
+    "core_count": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      24,
+      30,
+      32,
+      36,
+      40,
+      48,
+      61
+    ],
+    "cross_section_mm2": [
+      0.08,
+      0.1,
+      0.12,
+      0.14,
+      0.2,
+      0.22,
+      0.25,
+      0.34,
+      0.35,
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.5,
+      4,
+      6,
+      10,
+      16,
+      25,
+      35,
+      50,
+      70,
+      95,
+      120,
+      150,
+      185,
+      240
+    ],
+    "conductor_class": [
+      "class_1_solid",
+      "class_2_stranded",
+      "class_5_flexible",
+      "class_6_extra_flexible"
+    ],
+    "conductor_material": [
+      "cu",
+      "tinned_cu",
+      "al"
+    ],
+    "insulation": [
+      "PVC",
+      "XLPE",
+      "PE",
+      "PP",
+      "TPE",
+      "PUR",
+      "FEP",
+      "PTFE",
+      "silicone",
+      "ETFE"
+    ],
+    "jacket": [
+      "PVC",
+      "LSZH",
+      "PUR",
+      "TPE",
+      "PE",
+      "none"
+    ],
+    "shield": [
+      "none",
+      "foil",
+      "braid",
+      "foil_plus_drain",
+      "braid_plus_drain",
+      "sftp",
+      "pair_foil",
+      "pair_braid",
+      "overall_foil_pair_braid"
+    ],
+    "pairing": [
+      "none",
+      "pair",
+      "quad",
+      "star_quad"
+    ],
+    "armor": [
+      "none",
+      "steel_wire",
+      "steel_tape",
+      "alu_tape"
+    ],
+    "oil_resistant": [
+      "no",
+      "yes"
+    ],
+    "uv_resistant": [
+      "no",
+      "yes"
+    ],
+    "halogen_free": [
+      "no",
+      "yes"
+    ],
+    "flame_test": [
+      "none",
+      "IEC_60332_1",
+      "IEC_60332_3",
+      "UL_VW1",
+      "UL_FT1",
+      "UL_FT2",
+      "UL_FT4"
+    ],
+    "smoke": [
+      "none",
+      "IEC_61034_low_smoke"
+    ],
+    "temp_class_c": [
+      60,
+      70,
+      75,
+      80,
+      90,
+      105,
+      125,
+      150,
+      180,
+      200
+    ],
+    "voltage_class_v": [
+      30,
+      60,
+      300,
+      500,
+      600,
+      750,
+      1000
+    ]
+  },
+  "colors": [
+    {
+      "code": "BK",
+      "name": "Black",
+      "hex": "#000000"
+    },
+    {
+      "code": "BN",
+      "name": "Brown",
+      "hex": "#8B4513"
+    },
+    {
+      "code": "RD",
+      "name": "Red",
+      "hex": "#D0021B"
+    },
+    {
+      "code": "OG",
+      "name": "Orange",
+      "hex": "#F5A623"
+    },
+    {
+      "code": "YE",
+      "name": "Yellow",
+      "hex": "#F8E71C"
+    },
+    {
+      "code": "GN",
+      "name": "Green",
+      "hex": "#7ED321"
+    },
+    {
+      "code": "BU",
+      "name": "Blue",
+      "hex": "#4A90E2"
+    },
+    {
+      "code": "VT",
+      "name": "Violet",
+      "hex": "#9013FE"
+    },
+    {
+      "code": "GY",
+      "name": "Gray",
+      "hex": "#9B9B9B"
+    },
+    {
+      "code": "WH",
+      "name": "White",
+      "hex": "#FFFFFF"
+    },
+    {
+      "code": "PK",
+      "name": "Pink",
+      "hex": "#FF69B4"
+    },
+    {
+      "code": "TQ",
+      "name": "Turquoise",
+      "hex": "#50E3C2"
+    },
+    {
+      "code": "GNYE",
+      "name": "Green-Yellow",
+      "hex": "#B8E986"
+    }
+  ],
+  "color_standards": [
+    {
+      "name": "UL_GENERAL",
+      "label": "UL General"
+    },
+    {
+      "name": "DIN_47100",
+      "label": "DIN 47100"
+    },
+    {
+      "name": "IEC_BASIC",
+      "label": "IEC Basic (BN/BU/GNYE etc.)"
+    },
+    {
+      "name": "BLACK_NUMBERED",
+      "label": "Black numbered cores"
+    },
+    {
+      "name": "PROFINET_4P",
+      "label": "PROFINET 4-pair scheme"
+    }
+  ],
+  "color_sequences": [
+    {
+      "color_standard": "UL_GENERAL",
+      "core_count": 2,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK"
+        },
+        {
+          "n": 2,
+          "color": "WH"
+        }
+      ]
+    },
+    {
+      "color_standard": "UL_GENERAL",
+      "core_count": 3,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK"
+        },
+        {
+          "n": 2,
+          "color": "WH"
+        },
+        {
+          "n": 3,
+          "color": "RD"
+        }
+      ]
+    },
+    {
+      "color_standard": "UL_GENERAL",
+      "core_count": 4,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK"
+        },
+        {
+          "n": 2,
+          "color": "WH"
+        },
+        {
+          "n": 3,
+          "color": "RD"
+        },
+        {
+          "n": 4,
+          "color": "GN"
+        }
+      ]
+    },
+    {
+      "color_standard": "UL_GENERAL",
+      "core_count": 5,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK"
+        },
+        {
+          "n": 2,
+          "color": "WH"
+        },
+        {
+          "n": 3,
+          "color": "RD"
+        },
+        {
+          "n": 4,
+          "color": "GN"
+        },
+        {
+          "n": 5,
+          "color": "BU"
+        }
+      ]
+    },
+    {
+      "color_standard": "UL_GENERAL",
+      "core_count": 6,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK"
+        },
+        {
+          "n": 2,
+          "color": "WH"
+        },
+        {
+          "n": 3,
+          "color": "RD"
+        },
+        {
+          "n": 4,
+          "color": "GN"
+        },
+        {
+          "n": 5,
+          "color": "BU"
+        },
+        {
+          "n": 6,
+          "color": "YE"
+        }
+      ]
+    },
+    {
+      "color_standard": "UL_GENERAL",
+      "core_count": 7,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK"
+        },
+        {
+          "n": 2,
+          "color": "WH"
+        },
+        {
+          "n": 3,
+          "color": "RD"
+        },
+        {
+          "n": 4,
+          "color": "GN"
+        },
+        {
+          "n": 5,
+          "color": "BU"
+        },
+        {
+          "n": 6,
+          "color": "YE"
+        },
+        {
+          "n": 7,
+          "color": "GY"
+        }
+      ]
+    },
+    {
+      "color_standard": "UL_GENERAL",
+      "core_count": 8,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK"
+        },
+        {
+          "n": 2,
+          "color": "WH"
+        },
+        {
+          "n": 3,
+          "color": "RD"
+        },
+        {
+          "n": 4,
+          "color": "GN"
+        },
+        {
+          "n": 5,
+          "color": "BU"
+        },
+        {
+          "n": 6,
+          "color": "YE"
+        },
+        {
+          "n": 7,
+          "color": "GY"
+        },
+        {
+          "n": 8,
+          "color": "OG"
+        }
+      ]
+    },
+    {
+      "color_standard": "DIN_47100",
+      "core_count": 6,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "WH"
+        },
+        {
+          "n": 2,
+          "color": "BN"
+        },
+        {
+          "n": 3,
+          "color": "GN"
+        },
+        {
+          "n": 4,
+          "color": "YE"
+        },
+        {
+          "n": 5,
+          "color": "GY"
+        },
+        {
+          "n": 6,
+          "color": "PK"
+        }
+      ]
+    },
+    {
+      "color_standard": "DIN_47100",
+      "core_count": 8,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "WH"
+        },
+        {
+          "n": 2,
+          "color": "BN"
+        },
+        {
+          "n": 3,
+          "color": "GN"
+        },
+        {
+          "n": 4,
+          "color": "YE"
+        },
+        {
+          "n": 5,
+          "color": "GY"
+        },
+        {
+          "n": 6,
+          "color": "PK"
+        },
+        {
+          "n": 7,
+          "color": "BU"
+        },
+        {
+          "n": 8,
+          "color": "RD"
+        }
+      ]
+    },
+    {
+      "color_standard": "DIN_47100",
+      "core_count": 12,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "WH"
+        },
+        {
+          "n": 2,
+          "color": "BN"
+        },
+        {
+          "n": 3,
+          "color": "GN"
+        },
+        {
+          "n": 4,
+          "color": "YE"
+        },
+        {
+          "n": 5,
+          "color": "GY"
+        },
+        {
+          "n": 6,
+          "color": "PK"
+        },
+        {
+          "n": 7,
+          "color": "BU"
+        },
+        {
+          "n": 8,
+          "color": "RD"
+        },
+        {
+          "n": 9,
+          "color": "BK"
+        },
+        {
+          "n": 10,
+          "color": "VT"
+        },
+        {
+          "n": 11,
+          "color": "OG"
+        },
+        {
+          "n": 12,
+          "color": "TQ"
+        }
+      ]
+    },
+    {
+      "color_standard": "IEC_BASIC",
+      "core_count": 2,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BN"
+        },
+        {
+          "n": 2,
+          "color": "BU"
+        }
+      ]
+    },
+    {
+      "color_standard": "IEC_BASIC",
+      "core_count": 3,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BN"
+        },
+        {
+          "n": 2,
+          "color": "BU"
+        },
+        {
+          "n": 3,
+          "color": "GNYE"
+        }
+      ]
+    },
+    {
+      "color_standard": "IEC_BASIC",
+      "core_count": 4,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BN"
+        },
+        {
+          "n": 2,
+          "color": "BK"
+        },
+        {
+          "n": 3,
+          "color": "GY"
+        },
+        {
+          "n": 4,
+          "color": "GNYE"
+        }
+      ]
+    },
+    {
+      "color_standard": "PROFINET_4P",
+      "core_count": 8,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "YE"
+        },
+        {
+          "n": 2,
+          "color": "OG"
+        },
+        {
+          "n": 3,
+          "color": "WH",
+          "stripe": "OG"
+        },
+        {
+          "n": 4,
+          "color": "WH",
+          "stripe": "GN"
+        },
+        {
+          "n": 5,
+          "color": "BU"
+        },
+        {
+          "n": 6,
+          "color": "RD"
+        },
+        {
+          "n": 7,
+          "color": "WH",
+          "stripe": "BU"
+        },
+        {
+          "n": 8,
+          "color": "WH",
+          "stripe": "RD"
+        }
+      ]
+    },
+    {
+      "color_standard": "BLACK_NUMBERED",
+      "core_count": 4,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK",
+          "marking": "1"
+        },
+        {
+          "n": 2,
+          "color": "BK",
+          "marking": "2"
+        },
+        {
+          "n": 3,
+          "color": "BK",
+          "marking": "3"
+        },
+        {
+          "n": 4,
+          "color": "BK",
+          "marking": "4"
+        }
+      ]
+    },
+    {
+      "color_standard": "BLACK_NUMBERED",
+      "core_count": 6,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK",
+          "marking": "1"
+        },
+        {
+          "n": 2,
+          "color": "BK",
+          "marking": "2"
+        },
+        {
+          "n": 3,
+          "color": "BK",
+          "marking": "3"
+        },
+        {
+          "n": 4,
+          "color": "BK",
+          "marking": "4"
+        },
+        {
+          "n": 5,
+          "color": "BK",
+          "marking": "5"
+        },
+        {
+          "n": 6,
+          "color": "BK",
+          "marking": "6"
+        }
+      ]
+    },
+    {
+      "color_standard": "BLACK_NUMBERED",
+      "core_count": 12,
+      "sequence": [
+        {
+          "n": 1,
+          "color": "BK",
+          "marking": "1"
+        },
+        {
+          "n": 2,
+          "color": "BK",
+          "marking": "2"
+        },
+        {
+          "n": 3,
+          "color": "BK",
+          "marking": "3"
+        },
+        {
+          "n": 4,
+          "color": "BK",
+          "marking": "4"
+        },
+        {
+          "n": 5,
+          "color": "BK",
+          "marking": "5"
+        },
+        {
+          "n": 6,
+          "color": "BK",
+          "marking": "6"
+        },
+        {
+          "n": 7,
+          "color": "BK",
+          "marking": "7"
+        },
+        {
+          "n": 8,
+          "color": "BK",
+          "marking": "8"
+        },
+        {
+          "n": 9,
+          "color": "BK",
+          "marking": "9"
+        },
+        {
+          "n": 10,
+          "color": "BK",
+          "marking": "10"
+        },
+        {
+          "n": 11,
+          "color": "BK",
+          "marking": "11"
+        },
+        {
+          "n": 12,
+          "color": "BK",
+          "marking": "12"
+        }
+      ]
+    }
+  ],
+  "rules": [
+    {
+      "parent_property": "standard",
+      "parent_value": "UL",
+      "target_property": "series",
+      "allowed_values": [
+        "AWM_1007",
+        "AWM_1015",
+        "AWM_1061",
+        "AWM_2464",
+        "AWM_2586",
+        "AWM_20276",
+        "MTW",
+        "TC_ER",
+        "PLTC"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "IEC",
+      "target_property": "series",
+      "allowed_values": [
+        "H05V_K",
+        "H07V_K",
+        "NYM_J",
+        "LIYY",
+        "LIYCY",
+        "LI2YCY",
+        "YSLY",
+        "YSLYCY"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "VDE",
+      "target_property": "series",
+      "allowed_values": [
+        "LIYY_VDE",
+        "LIYCY_VDE",
+        "PUR_DRAGCHAIN"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "TIA_EIA",
+      "target_property": "series",
+      "allowed_values": [
+        "CAT5E",
+        "CAT6",
+        "CAT6A"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "PROFINET",
+      "target_property": "series",
+      "allowed_values": [
+        "PN_TYPE_A",
+        "PN_TYPE_B",
+        "PN_TYPE_C"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "ISO_6722",
+      "target_property": "series",
+      "allowed_values": [
+        "FLRY_A",
+        "FLRY_B"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "SAE",
+      "target_property": "series",
+      "allowed_values": [
+        "SAE_J1128_TXL",
+        "SAE_J1128_GXL",
+        "SAE_J1128_SXL"
+      ]
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "LIYCY",
+      "target_property": "shield",
+      "allowed_values": [
+        "braid",
+        "braid_plus_drain",
+        "foil",
+        "foil_plus_drain"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "YSLYCY",
+      "target_property": "shield",
+      "allowed_values": [
+        "braid",
+        "braid_plus_drain"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT5E",
+      "target_property": "core_count",
+      "allowed_values": [
+        8
+      ],
+      "is_locking_rule": true
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT6",
+      "target_property": "core_count",
+      "allowed_values": [
+        8
+      ],
+      "is_locking_rule": true
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT6A",
+      "target_property": "core_count",
+      "allowed_values": [
+        8
+      ],
+      "is_locking_rule": true
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT5E",
+      "target_property": "pairing",
+      "allowed_values": [
+        "pair"
+      ],
+      "is_locking_rule": true
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT6",
+      "target_property": "pairing",
+      "allowed_values": [
+        "pair"
+      ],
+      "is_locking_rule": true
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT6A",
+      "target_property": "pairing",
+      "allowed_values": [
+        "pair"
+      ],
+      "is_locking_rule": true
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT5E",
+      "target_property": "insulation",
+      "allowed_values": [
+        "PE"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT6",
+      "target_property": "insulation",
+      "allowed_values": [
+        "PE"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT6A",
+      "target_property": "insulation",
+      "allowed_values": [
+        "PE"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAN_CABLE",
+      "target_property": "pairing",
+      "allowed_values": [
+        "pair"
+      ],
+      "is_locking_rule": true
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "UL",
+      "target_property": "insulation",
+      "allowed_values": [
+        "PVC",
+        "TPE",
+        "FEP",
+        "XLPE"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "IEC",
+      "target_property": "insulation",
+      "allowed_values": [
+        "PVC",
+        "XLPE",
+        "PE",
+        "TPE"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "VDE",
+      "target_property": "jacket",
+      "allowed_values": [
+        "PVC",
+        "PUR",
+        "LSZH"
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "ISO_6722",
+      "target_property": "temp_class_c",
+      "allowed_values": [
+        105,
+        125,
+        150
+      ]
+    },
+    {
+      "parent_property": "standard",
+      "parent_value": "ISO_6722",
+      "target_property": "conductor_class",
+      "allowed_values": [
+        "class_5_flexible",
+        "class_6_extra_flexible"
+      ]
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "NYM_J",
+      "target_property": "color_standard",
+      "allowed_values": [
+        "IEC_BASIC"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "AWM_2464",
+      "target_property": "color_standard",
+      "allowed_values": [
+        "UL_GENERAL",
+        "BLACK_NUMBERED"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "LIYY",
+      "target_property": "color_standard",
+      "allowed_values": [
+        "DIN_47100",
+        "BLACK_NUMBERED"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "LIYCY",
+      "target_property": "color_standard",
+      "allowed_values": [
+        "DIN_47100",
+        "BLACK_NUMBERED"
+      ],
+      "is_locking_rule": false
+    },
+    {
+      "parent_property": "series",
+      "parent_value": "CAT6",
+      "target_property": "color_standard",
+      "allowed_values": [
+        "PROFINET_4P",
+        "BLACK_NUMBERED"
+      ],
+      "is_locking_rule": false
+    }
+  ],
+  "sample_items": [
+    {
+      "item_code": "0001",
+      "standard": "UL",
+      "series": "AWM_2464",
+      "core_count": 6,
+      "cross_section_mm2": 0.25,
+      "insulation": "PVC",
+      "jacket": "PVC",
+      "shield": "foil_plus_drain",
+      "temp_class_c": 80,
+      "voltage_class_v": 300,
+      "color_standard": "UL_GENERAL"
+    },
+    {
+      "item_code": "0002",
+      "standard": "IEC",
+      "series": "LIYCY",
+      "core_count": 12,
+      "cross_section_mm2": 0.34,
+      "insulation": "PVC",
+      "jacket": "PVC",
+      "shield": "braid",
+      "temp_class_c": 70,
+      "voltage_class_v": 300,
+      "color_standard": "DIN_47100"
+    },
+    {
+      "item_code": "0003",
+      "standard": "TIA_EIA",
+      "series": "CAT6",
+      "core_count": 8,
+      "cross_section_mm2": 0.22,
+      "insulation": "PE",
+      "jacket": "LSZH",
+      "shield": "sftp",
+      "temp_class_c": 60,
+      "voltage_class_v": null,
+      "color_standard": "PROFINET_4P"
+    },
+    {
+      "item_code": "0004",
+      "standard": "ISO_6722",
+      "series": "FLRY_B",
+      "core_count": 1,
+      "cross_section_mm2": 1.5,
+      "insulation": "XLPE",
+      "jacket": "none",
+      "shield": "none",
+      "temp_class_c": 105,
+      "voltage_class_v": 60,
+      "color_standard": "UL_GENERAL"
+    }
+  ]
+}
