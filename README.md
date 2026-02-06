@@ -1,105 +1,41 @@
-# BOM System Design
+### bom-system-design
 
-ERPNext içinde çalışan **kablo demeti (wire harness) tasarım ve üretim BOM oluşturma aracı**.
+Bom System Design for KTA
 
-Bu proje klasik BOM giriş ekranı değildir.
-Bu sistem mühendislerin bileşenleri yerleştirip pinleri bağlayarak tasarım yapmasını sağlar.
-Sistem tasarımı doğrular, diyagram üretir ve ERPNext’e üretim BOM’u gönderir.
+### Installation
 
----
+You can install this app using the [bench](https://github.com/frappe/bench) CLI:
 
-## Amaç
+```bash
+cd $PATH_TO_YOUR_BENCH
+bench get-app $URL_OF_THIS_REPO --branch develop
+bench install-app bom-system-design
+```
 
-Karmaşık kablo demetleri ERP içinde satır satır yazılarak oluşturulamaz.
-Bu proje:
+### Contributing
 
-- Connector
-- Cable
-- Terminal
-- Splice
+This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
 
-gibi bileşenlerden görsel olarak bir bağlantı ağı kurar.
+```bash
+cd apps/bom-system-design
+pre-commit install
+```
 
-Sonuç:
-- Graphviz diyagramı
-- Üretilebilir BOM
-- Doğrulanmış bağlantı listesi
+Pre-commit is configured to use the following tools for checking and formatting your code:
 
----
+- ruff
+- eslint
+- prettier
+- pyupgrade
 
-## Temel Kavramlar
+### CI
 
-### Spec Driven Items
-Her item kendi mühendislik bilgisini taşır.
+This app can use GitHub Actions for CI. The following workflows are configured:
 
-| Tip | Örnek Alanlar |
-|---|---|
-| Connector | pin_labels, pitch, gender |
-| Cable | wire_count, colors, shield |
-| Terminal | crimp_range, material |
-| Splice | type, sealed |
+- CI: Installs this app and runs unit tests on every push to `develop` branch.
+- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
 
----
 
-### Connection Graph
-Sistem BOM değil, bir **bağlantı grafı** tutar.
+### License
 
-Pin → Pin bağlantıları
-Wire → Terminal ilişkileri
-Connector → Cable mapping
-
----
-
-### Validation Engine
-Tasarım yapılırken kontrol edilir:
-
-- Pin sayısı uyumsuzluğu
-- Wire count hataları
-- Uygun olmayan terminal
-- Shield continuity
-
----
-
-### Diagram Generator
-Graphviz ile otomatik şema üretir.
-
----
-
-### BOM Generator
-Son adımda ERPNext Manufacturing BOM oluşturulur.
-
----
-
-## Workflow
-
-1) Bileşenleri yerleştir
-2) Pinleri bağla
-3) Doğrula
-4) Diyagram üret
-5) BOM export
-
----
-
-## Mimari
-
-Frontend: Vue Canvas UI  
-Backend: Frappe API  
-Engine: Graph model + validation  
-Output: Graphviz + ERPNext BOM
-
----
-
-## Bu proje ne değildir
-
-- Klasik ERP BOM girişi değildir
-- Üretim operasyon planlayıcı değildir
-- Kural motoru değildir
-
-Bu bir mühendislik tasarım aracıdır.
-
----
-
-## Roadmap
-
-Detaylı plan için:
-MILESTONES.md
+mit
