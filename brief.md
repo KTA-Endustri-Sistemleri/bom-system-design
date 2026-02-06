@@ -111,35 +111,38 @@ Items are linked to exactly one spec type via `spec_role`.
 
 ---
 
-### 5.3 Cable Spec
+### 5.3 Cable Configuration & Core Identification System
 
-**Required**
-- gauge_mm2
-- wirecount
-- shielded
-- color_code_standard
-- core_colors (ordered child table)
+A cable is treated as a logical specification that generates physical core instances. The system behaves as a **Constraint Solver**.
 
-**Optional (ALL INCLUDED)**
-- cable_type
-- outer_diameter_mm
-- jacket_color
-- jacket_material
-- temperature_rating_c
-- voltage_rating_v
-- flame_rating
-- is_twisted
-- twist_pairs
-- impedance_ohm
-- drain_wire
-- shield_type
-- shield_coverage_pct
-- manufacturer
-- part_number
-- datasheet_url
-- uom_for_length (default: Meter)
-- min_order_length_m
-- cut_tolerance_mm
+#### 5.3.1 Master Data (Rules Engine)
+- **Cable Standard**: (L) UL, IEC, ISO, SAE. Defines the governing authority and **Domain** (Energy, Control, etc.).
+- **Cable Series**: (L) Sub-family (e.g., AWM, THHN, LiYCY). Includes **Voltage Class** and **Temperature Range** (min/max).
+- **Cable Property Option**: (D) Selectable values (Insulation, Shield, etc.). Prevents UI hardcoding via predefined options with **Sort Order**.
+- **Cable Rule**: (M) The core engine defining allowed combinations. Supports **Locking Rules**, **Priorities**, and links parent properties to target allowed values.
+
+#### 5.3.2 Color System
+- **Cable Color**: (D) Library with codes (RD, BU, BK), Hex colors, and **Stripe Allowed** flag.
+- **Color Standard**: (L) Standard definitions (DIN 47100, IEC, Profinet, etc.).
+- **Color Sequence**: (M) Maps a Color Standard and Core Count to an ordered list of colors.
+- **Color Sequence Row**: (C) Child table defining the **Order Index**, Color, and Stripe.
+
+#### 5.3.3 Cable Specification (Item Profile)
+Linked to an Item, this DocType captures the selection:
+- Standard & Series (Links)
+- Core Count & Cross Section
+- Insulation & Shielding
+- Temperature Class
+- Color Standard
+- **Generation Status** (Status tracking for core instances)
+
+#### 5.3.4 Generated Cores
+**Cable Core** (Child of Specification):
+- Auto-generated on update of `core_count` or `color_standard`.
+- Fields: Core No, Color, Stripe, Pair ID, Function, Group Shield.
+- **Behavior**: Acts as a **Constraint Solver**; invalid combinations are blocked from saving.
+
+
 
 ---
 

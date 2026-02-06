@@ -4,8 +4,10 @@
 We are in the initial setup phase. The project vision and technical specifications have been defined in `brief.md`.
 
 ## Current Focus
-- Initializing the Memory Bank to establish a solid documentation foundation.
-- Preparing for the implementation of core DocTypes (Connector, Cable, Terminal Spec).
+- Establishing the rule-driven Cable Configuration & Core Identification System.
+- Preparing for the implementation of core DocTypes with validation rules and auto-generation logic.
+- Finalizing the naming series strategy for BOM Builds.
+
 
 ## Recent Decisions
 - **Standalone App**: The application will be a standalone Frappe app, not embedded in ERPNext core, to allow for faster iteration and specific engineering logic.

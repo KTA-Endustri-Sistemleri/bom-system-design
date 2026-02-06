@@ -7,7 +7,9 @@ The application replaces manual, error-prone BOM editing with a spec-driven, val
 
 ## Core Goals
 - **Single Source of Truth**: Item specs define what a component is; BOM Build defines how it is used.
+- **Expert Knowledge Base**: Rule-driven cable selection acts as a constraint solver, guiding users and preventing invalid configurations.
 - **Deterministic Output**: Same inputs always result in the same BOM and wiring diagrams.
+
 - **Engineering Validation**: Block incorrect designs early (e.g., pin count overflow, gauge mismatch).
 - **ERP Integration**: Seamlessly generate ERPNext-compatible BOMs.
 

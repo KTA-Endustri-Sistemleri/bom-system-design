@@ -10,12 +10,32 @@ This file defines the persistent database structure for the application.
 - **Pin Labels**: (Table) Child table with `pin_no` and `label`.
 - **Metadata**: Gender, Mounting, Orientation, Keying, Pitch, etc.
 
-### 2. Cable Spec
-- **Gauge (mm2)**: (Float) Wire thickness.
-- **Wirecount**: (Int) Number of cores.
-- **Shielded**: (Check) Is the cable shielded?
-- **Core Colors**: (Table) Ordered child table.
-- **Metadata**: Outer Diameter, Jacket Material, Temperature Rating, Voltage Rating, etc.
+### 2. Cable Specification (Refined)
+The system uses a rule-driven architecture for cables.
+
+#### Master Data
+- **Cable Standard**: (L) UL, IEC, ISO, SAE. Domain-specific (Energy, Automotive, etc).
+- **Cable Series**: (L) AWM, THHN, LiYCY, etc. Linked to Standard. Includes voltage and temp limits.
+- **Cable Property Option**: (D) Generic dictionary for insulation, core counts, shields, etc. Used to avoid hardcoding dropdowns.
+- **Cable Rule**: (M) Logic engine defining allowed combinations (e.g., specific Series allows only specific Core Counts).
+
+#### Color System
+- **Cable Color**: (D) Library of RD, BU, BK, etc. with Hex codes and stripe rules.
+- **Color Standard**: (L) DIN 47100, IEC, UL General, etc.
+- **Color Sequence**: (M) Maps a Color Standard and Core Count to a specific ordered list of colors.
+- **Color Sequence Row**: (C) Child of Sequence. Order index, Color, Stripe.
+
+#### Item Profile
+- **Cable Specification**: (Linked to Item)
+  - Standard, Series, Core Count, Cross Section, Insulation, Shield.
+  - Temperature Class, Color Standard.
+  - Generation Status (Pending/Generated).
+
+#### Generated Cores
+- **Cable Core**: (Child of Cable Specification)
+  - Auto-generated based on Color Sequence.
+  - Core No, Color, Stripe, Pair ID, Function, Group Shield.
+
 
 ### 3. Terminal Spec
 - **Style**: (Select) Ring, Spade, Pin, etc.

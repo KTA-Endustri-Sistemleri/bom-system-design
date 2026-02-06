@@ -30,15 +30,37 @@ Items in ERPNext are enriched with "Spec" DocTypes.
 
 ## Logic Flows
 
+### Cable Configuration Logic
+The system behaves as a **Constraint Solver**.
+1. **Selection Flow**:
+   - Standard filters compliant Series.
+   - Series filters allowed Properties (Core Count, Insulation, etc) via `Cable Rule`.
+   - UI locks or hides fields when rules force specific values.
+2. **Validation Engine** (Run on `validate()`):
+   - Fetches all `Cable Rule` records matching the current selection.
+   - Verifies that all selected properties are within the allowed sets.
+   - Raises a validation error for invalid combinations.
+
+### Core Auto-Generation
+Triggered when `core_count` or `color_standard` changes in `Cable Specification`.
+1. **Fetch**: Retrieve the matching `Color Sequence`.
+2. **Purge**: Delete existing `Cable Core` children.
+3. **Generate**: Create $N$ new `Cable Core` rows.
+4. **Sequence**: Map colors and stripes based on the sequence library.
+5. **Status**: Update generation status to "Generated".
+
 ### BOM Generation
 1. Validate all connections.
 2. Aggregate Node quantities.
 3. Calculate Cable lengths based on connection data or overrides.
 4. Derive Terminal quantities (Qty = 1 per connected pin).
 5. Create/Update standard ERPNext BOM.
+6. **Cable Mapping**: Links `BOM Build Connection` directly to `Cable Core` instances for precise harness mapping.
 
 ### Diagram Generation
 1. Parse `BOM Build Connection` table.
 2. Generate DOT language script.
 3. Call `dot` binary to render SVG.
 4. Store SVG in File Manager and link to BOM Build.
+
+

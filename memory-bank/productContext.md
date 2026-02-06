@@ -5,11 +5,16 @@ BOM Creator is designed for engineering and manufacturing environments where com
 ## User Workflows
 
 ### Engineering Design Workflow
-1. **Define Library**: Engineers add Item codes for Connectors, Cables, and Terminals, attaching detailed technical specs to each.
-2. **Build Assembly**: Using the Vue UI, engineers select components (Nodes) and define their relationships.
-3. **Define Connections**: Table-based entry of pin-to-pin wiring using specific cable cores.
-4. **Validation**: The system checks for errors (e.g., trying to use more cores than a cable has).
-5. **Release**: Once validated, the build is hashed and released, generating an ERPNext BOM and a wiring diagram.
+1. **Define Library**: Engineers add Item codes for Connectors, Cables, and Terminals.
+2. **Cable Specification**:
+   - Select **Standard** & **Series**.
+   - Fill construction properties (Core Count, Insulation, etc) guided by the **Constraint Solver** (Rules).
+   - Once validated, the system **Auto-Generates Core Colors** based on the selected Color Standard.
+3. **Build Assembly**: Using the Vue UI, engineers select components (Nodes) and define their relationships.
+4. **Define Connections**: Table-based entry of pin-to-pin wiring using specific cable cores.
+5. **Validation**: The system checks for errors (e.g., trying to use more cores than a cable has, or invalid property combinations).
+6. **Release**: Once validated, the build is hashed and released, generating an ERPNext BOM and a wiring diagram.
+
 
 ### Production Workflow
 1. **Access Released Build**: Production staff view the released BOM and wiring diagram.

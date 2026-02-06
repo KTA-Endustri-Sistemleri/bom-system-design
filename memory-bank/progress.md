@@ -4,6 +4,7 @@
 - [x] Project Vision & Specification (`brief.md`)
 - [x] Memory Bank Initialization
 - [ ] Core Spec DocTypes Implementation
+- [ ] Cable Configuration & Core Identification System Design
 - [ ] BOM Build DocType Implementation
 - [ ] Vue Designer UI Scaffolding
 - [ ] Diagram Generation Engine (Graphviz)
