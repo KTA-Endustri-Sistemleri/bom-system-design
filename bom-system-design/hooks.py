@@ -1,4 +1,4 @@
-app_name = "bom_system_design"
+app_name = "bom-system-design"
 app_title = "bom-system-design"
 app_publisher = "KTA Endustri Sistemleri"
 app_description = "Bom System Design for KTA"
@@ -13,11 +13,11 @@ app_license = "mit"
 # Each item in the list will be shown as an app in the apps page
 # add_to_apps_screen = [
 # 	{
-# 		"name": "bom_system_design",
-# 		"logo": "/assets/bom_system_design/logo.png",
+# 		"name": "bom-system-design",
+# 		"logo": "/assets/bom-system-design/logo.png",
 # 		"title": "bom-system-design",
-# 		"route": "/bom_system_design",
-# 		"has_permission": "bom_system_design.api.permission.has_app_permission"
+# 		"route": "/bom-system-design",
+# 		"has_permission": "bom-system-design.api.permission.has_app_permission"
 # 	}
 # ]
 
@@ -25,15 +25,15 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/bom_system_design/css/bom_system_design.css"
-# app_include_js = "/assets/bom_system_design/js/bom_system_design.js"
+# app_include_css = "/assets/bom-system-design/css/bom-system-design.css"
+# app_include_js = "/assets/bom-system-design/js/bom-system-design.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/bom_system_design/css/bom_system_design.css"
-# web_include_js = "/assets/bom_system_design/js/bom_system_design.js"
+# web_include_css = "/assets/bom-system-design/css/bom-system-design.css"
+# web_include_js = "/assets/bom-system-design/js/bom-system-design.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "bom_system_design/public/scss/website"
+# website_theme_scss = "bom-system-design/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -51,7 +51,7 @@ app_license = "mit"
 # Svg Icons
 # ------------------
 # include app icons in desk
-# app_include_icons = "bom_system_design/public/icons.svg"
+# app_include_icons = "bom-system-design/public/icons.svg"
 
 # Home Pages
 # ----------
@@ -75,43 +75,43 @@ app_license = "mit"
 
 # add methods and filters to jinja environment
 # jinja = {
-# 	"methods": "bom_system_design.utils.jinja_methods",
-# 	"filters": "bom_system_design.utils.jinja_filters"
+# 	"methods": "bom-system-design.utils.jinja_methods",
+# 	"filters": "bom-system-design.utils.jinja_filters"
 # }
 
 # Installation
 # ------------
 
-# before_install = "bom_system_design.install.before_install"
-# after_install = "bom_system_design.install.after_install"
+# before_install = "bom-system-design.install.before_install"
+# after_install = "bom-system-design.install.after_install"
 
 # Uninstallation
 # ------------
 
-# before_uninstall = "bom_system_design.uninstall.before_uninstall"
-# after_uninstall = "bom_system_design.uninstall.after_uninstall"
+# before_uninstall = "bom-system-design.uninstall.before_uninstall"
+# after_uninstall = "bom-system-design.uninstall.after_uninstall"
 
 # Integration Setup
 # ------------------
 # To set up dependencies/integrations with other apps
 # Name of the app being installed is passed as an argument
 
-# before_app_install = "bom_system_design.utils.before_app_install"
-# after_app_install = "bom_system_design.utils.after_app_install"
+# before_app_install = "bom-system-design.utils.before_app_install"
+# after_app_install = "bom-system-design.utils.after_app_install"
 
 # Integration Cleanup
 # -------------------
 # To clean up dependencies/integrations with other apps
 # Name of the app being uninstalled is passed as an argument
 
-# before_app_uninstall = "bom_system_design.utils.before_app_uninstall"
-# after_app_uninstall = "bom_system_design.utils.after_app_uninstall"
+# before_app_uninstall = "bom-system-design.utils.before_app_uninstall"
+# after_app_uninstall = "bom-system-design.utils.after_app_uninstall"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "bom_system_design.notifications.get_notification_config"
+# notification_config = "bom-system-design.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -150,39 +150,39 @@ app_license = "mit"
 
 # scheduler_events = {
 # 	"all": [
-# 		"bom_system_design.tasks.all"
+# 		"bom-system-design.tasks.all"
 # 	],
 # 	"daily": [
-# 		"bom_system_design.tasks.daily"
+# 		"bom-system-design.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"bom_system_design.tasks.hourly"
+# 		"bom-system-design.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"bom_system_design.tasks.weekly"
+# 		"bom-system-design.tasks.weekly"
 # 	],
 # 	"monthly": [
-# 		"bom_system_design.tasks.monthly"
+# 		"bom-system-design.tasks.monthly"
 # 	],
 # }
 
 # Testing
 # -------
 
-# before_tests = "bom_system_design.install.before_tests"
+# before_tests = "bom-system-design.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "bom_system_design.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "bom-system-design.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "bom_system_design.task.get_dashboard_data"
+# 	"Task": "bom-system-design.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled
@@ -196,13 +196,13 @@ app_license = "mit"
 
 # Request Events
 # ----------------
-# before_request = ["bom_system_design.utils.before_request"]
-# after_request = ["bom_system_design.utils.after_request"]
+# before_request = ["bom-system-design.utils.before_request"]
+# after_request = ["bom-system-design.utils.after_request"]
 
 # Job Events
 # ----------
-# before_job = ["bom_system_design.utils.before_job"]
-# after_job = ["bom_system_design.utils.after_job"]
+# before_job = ["bom-system-design.utils.before_job"]
+# after_job = ["bom-system-design.utils.after_job"]
 
 # User Data Protection
 # --------------------
@@ -232,7 +232,7 @@ app_license = "mit"
 # --------------------------------
 
 # auth_hooks = [
-# 	"bom_system_design.auth.validate"
+# 	"bom-system-design.auth.validate"
 # ]
 
 # Automatically update python controller files with type annotations for this app.
