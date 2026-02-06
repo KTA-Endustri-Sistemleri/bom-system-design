@@ -1,59 +1,105 @@
-# BOM System Design Draft
+# BOM System Design
 
-![Status](https://img.shields.io/badge/status-draft-orange)
+ERPNext içinde çalışan **kablo demeti (wire harness) tasarım ve üretim BOM oluşturma aracı**.
 
-ERPNext için **Kablo, Terminal ve Kalıp ilişkilerini otomatik çözümleyen** BOM tasarımı.  
-Bu çalışma, fikir geliştirme aşamasında olup, ileride ERPNext uygulaması olarak genişletilecektir.
-
-## 🎯 Amaç
-- Kullanıcı BOM’a yalnızca item kodlarını girer.
-- Sistem ilişkileri çözer ve doğru **operasyon + workstation** kombinasyonunu otomatik üretir.
-- Manuel eşleştirmeler ortadan kalkar, hata riski azalır.
-
-## 🗂 Ana Bileşenler
-- **Kalıplar (KL-XXXX):** Çoklu terminal, çoklu workstation desteği.
-- **Terminaller (100-Terminals):** Sıyırma değerleri, uyumlu kalıp & kablo bilgisi.
-- **Kablolar (200-Cables & Wires):** Crimp yükseklik değeri, uyumlu terminaller.
-
-## 🔗 İlişkiler
-- Kalıp ↔ Terminal (**many-to-many**)
-- Terminal ↔ Kablo (**many-to-many**)
-- Kalıp ↔ Workstation (**many-to-many**)
-
-## ⚙️ Çalışma Mantığı
-1. Kullanıcı herhangi bir item seçer (Kablo / Terminal / Kalıp).
-2. Sistem eşleşmeleri daraltarak **tek doğru kombinasyonu** bulur.
-3. Kalıp üzerinden workstation atanır:
-   - Tek workstation → otomatik atanır.
-   - Çok workstation → kullanıcı seçer.
-
-## ✅ Kazanımlar
-- Daha az manuel işlem
-- Daha düşük hata oranı
-- Sade ve net **Job Card** görünümü
-- Deterministik eşleşme sayesinde tam otomasyon
+Bu proje klasik BOM giriş ekranı değildir.
+Bu sistem mühendislerin bileşenleri yerleştirip pinleri bağlayarak tasarım yapmasını sağlar.
+Sistem tasarımı doğrular, diyagram üretir ve ERPNext’e üretim BOM’u gönderir.
 
 ---
 
-## 🚀 Milestones
-### Milestone 1: Modelleme
-- [ ] DocType tasarımlarının çıkarılması (Mould, Terminal, Cable)
-- [ ] Many-to-many ilişki tablolarının belirlenmesi
+## Amaç
 
-### Milestone 2: BOM Entegrasyonu
-- [ ] BOM Operation’a `custom_mould` alanının eklenmesi
-- [ ] Hook: BOM save sırasında otomatik eşleşme fonksiyonları
+Karmaşık kablo demetleri ERP içinde satır satır yazılarak oluşturulamaz.
+Bu proje:
 
-### Milestone 3: Operasyon & Workstation
-- [ ] Workstation seçim algoritması (tek → otomatik, çok → seçim)
-- [ ] Operasyon satırında birleşik görünüm
+- Connector
+- Cable
+- Terminal
+- Splice
 
-### Milestone 4: Test & Doğrulama
-- [ ] Dummy veri ile (C-0001, T-0001, KL-0001) test
-- [ ] Job Card üzerinde operasyon çıktısının kontrolü
+gibi bileşenlerden görsel olarak bir bağlantı ağı kurar.
+
+Sonuç:
+- Graphviz diyagramı
+- Üretilebilir BOM
+- Doğrulanmış bağlantı listesi
 
 ---
 
-## 📌 Durum
-Bu repo şu anda **fikir geliştirme aşamasındadır**.  
-Boilerplate kod ve JSON dosyaları ilerleyen milestone’larda eklenecektir.
+## Temel Kavramlar
+
+### Spec Driven Items
+Her item kendi mühendislik bilgisini taşır.
+
+| Tip | Örnek Alanlar |
+|---|---|
+| Connector | pin_labels, pitch, gender |
+| Cable | wire_count, colors, shield |
+| Terminal | crimp_range, material |
+| Splice | type, sealed |
+
+---
+
+### Connection Graph
+Sistem BOM değil, bir **bağlantı grafı** tutar.
+
+Pin → Pin bağlantıları
+Wire → Terminal ilişkileri
+Connector → Cable mapping
+
+---
+
+### Validation Engine
+Tasarım yapılırken kontrol edilir:
+
+- Pin sayısı uyumsuzluğu
+- Wire count hataları
+- Uygun olmayan terminal
+- Shield continuity
+
+---
+
+### Diagram Generator
+Graphviz ile otomatik şema üretir.
+
+---
+
+### BOM Generator
+Son adımda ERPNext Manufacturing BOM oluşturulur.
+
+---
+
+## Workflow
+
+1) Bileşenleri yerleştir
+2) Pinleri bağla
+3) Doğrula
+4) Diyagram üret
+5) BOM export
+
+---
+
+## Mimari
+
+Frontend: Vue Canvas UI  
+Backend: Frappe API  
+Engine: Graph model + validation  
+Output: Graphviz + ERPNext BOM
+
+---
+
+## Bu proje ne değildir
+
+- Klasik ERP BOM girişi değildir
+- Üretim operasyon planlayıcı değildir
+- Kural motoru değildir
+
+Bu bir mühendislik tasarım aracıdır.
+
+---
+
+## Roadmap
+
+Detaylı plan için:
+MILESTONES.md

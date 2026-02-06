@@ -1,59 +1,77 @@
-# BOM System Design Draft
+# BOM System Design
 
-![Status](https://img.shields.io/badge/status-draft-orange)
+A visual wire harness design and manufacturing BOM generator running inside ERPNext.
 
-ERPNext **Bill of Materials (BOM) design** for automatically resolving the relationships between **Cables, Terminals, and Moulds**.  
-This is currently in the **concept/design phase** and will later be extended into a full ERPNext application.
-
-## 🎯 Goal
-- User only enters item codes in the BOM.
-- The system resolves relationships and automatically determines the correct **operation + workstation** combination.
-- Eliminates manual linking and reduces error risk.
-
-## 🗂 Core Components
-- **Moulds (KL-XXXX):** Can support multiple terminals, can be assigned to multiple workstations.
-- **Terminals (100-Terminals):** Contain stripping values, can link to multiple cables and moulds.
-- **Cables (200-Cables & Wires):** Contain crimp height information, can link to multiple terminals.
-
-## 🔗 Relationships
-- Mould ↔ Terminal (**many-to-many**)  
-- Terminal ↔ Cable (**many-to-many**)  
-- Mould ↔ Workstation (**many-to-many**)  
-
-## ⚙️ Workflow
-1. User selects any item (Cable / Terminal / Mould).
-2. System narrows down relationships to find the **single valid combination**.
-3. Workstation assignment via mould:
-   - If only one workstation → auto-assign.  
-   - If multiple → user selects.  
-
-## ✅ Benefits
-- Less manual linking
-- Reduced error rate
-- Cleaner **Job Card** interface
-- Deterministic mapping → ensures automation
+This is NOT a traditional ERP BOM entry tool.
+Engineers design a harness by placing components and connecting pins.
+The system validates the design, generates diagrams and exports a production BOM.
 
 ---
 
-## 🚀 Milestones
-### Milestone 1: Modeling
-- [ ] Define DocTypes (Mould, Terminal, Cable)
-- [ ] Define many-to-many relationship tables
+## Purpose
 
-### Milestone 2: BOM Integration
-- [ ] Add `custom_mould` field to BOM Operation
-- [ ] Hook: Auto-mapping during BOM save
+Complex wiring harnesses cannot be created as line-by-line ERP entries.
 
-### Milestone 3: Operation & Workstation
-- [ ] Workstation selection algorithm (auto or user choice)
-- [ ] Unified operation line output
+The system models:
 
-### Milestone 4: Testing & Validation
-- [ ] Test with dummy data (C-0001, T-0001, KL-0001)
-- [ ] Verify operation output in Job Card
+- Connectors
+- Cables
+- Terminals
+- Splices
+
+Result:
+- Graphviz diagram
+- Manufacturable BOM
+- Verified connectivity
 
 ---
 
-## 📌 Status
-This repository is in the **design/draft phase**.  
-Boilerplate code and JSON files will be added in later milestones.
+## Core Concepts
+
+### Spec Driven Items
+Each item contains engineering knowledge.
+
+### Connection Graph
+The system stores a connectivity graph, not a list.
+
+### Validation Engine
+Live engineering checks during design.
+
+### Diagram Generator
+Automatic schematic generation via Graphviz.
+
+### BOM Generator
+Exports ERPNext manufacturing BOM.
+
+---
+
+## Workflow
+
+1) Place components
+2) Connect pins
+3) Validate
+4) Generate diagram
+5) Export BOM
+
+---
+
+## Architecture
+
+Frontend: Vue Canvas  
+Backend: Frappe  
+Engine: Graph + validation  
+Output: Graphviz + ERPNext
+
+---
+
+## Not This
+
+Not an ERP BOM editor  
+Not a rule engine  
+Not production routing planner
+
+This is an engineering design tool.
+
+---
+
+See: MILESTONES_EN.md

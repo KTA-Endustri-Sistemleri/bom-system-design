@@ -1,17 +1,22 @@
-# 🚀 Milestone Plan
+# Project Milestones
 
-## Milestone 1: Modeling
-- Define DocTypes (Mould List, Terminal Settings, Cable Settings)
-- Establish many-to-many relationship tables
+## 1 — Spec Foundation
+Engineering fields for items
 
-## Milestone 2: BOM Integration
-- Add `custom_mould` field to BOM Operation
-- Implement hook: Auto-mapping on BOM save
+## 2 — Designer UI
+Visual drag & drop harness designer
 
-## Milestone 3: Operation & Workstation
-- Implement workstation assignment algorithm (auto if one, choice if multiple)
-- Generate unified operation line output
+## 3 — Connection Engine
+Connectivity graph model
 
-## Milestone 4: Testing & Validation
-- Validate with dummy data (C-0001, T-0001, KL-0001)
-- Check operation assignment in Job Card
+## 4 — Validation Engine
+Engineering rule checks
+
+## 5 — Diagram Generator
+Graphviz schematic generation
+
+## 6 — Export System
+Manufacturing outputs
+
+## 7 — ERP Integration
+ERPNext BOM creation
